@@ -7,23 +7,14 @@ import './Formulario.css'
 const Formulario = (props) => {
 
     const cargos = [
-        '--',
         'Mestre',
         'Player'
     ]
 
-    const mesas = [
-        '--',
-        'Mandleton',
-        'Hunter ao Cubo',
-        'O Capítulo Vermelho',
-        'Conhecimento Infinito'
-    ]
-
     const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
+    const [cargo, setCargo] = useState('Mestre')
     const [imagem, setImagem] = useState('')
-    const [mesa, setMesa] = useState('')
+    const [mesa, setMesa] = useState('Mandleton')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
@@ -33,6 +24,10 @@ const Formulario = (props) => {
             imagem,
             mesa
         })
+        
+        setNome('')
+        setImagem('')
+
     }
 
     return (    
@@ -61,7 +56,7 @@ const Formulario = (props) => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label='Mesa'
-                    itens={mesas}
+                    itens={props.mesas}
                     aoAlterado={valor => setMesa(valor)}
                 />
                 <Botao>
