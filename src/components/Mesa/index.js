@@ -9,7 +9,7 @@ const Mesa = (props) => {
         (props.colaboradores.length > 0) ? <section className='mesa' style={css}>
             <h3 style={{ borderColor: props.corSecundaria }}>{props.nome}</h3>
             <div className='colaboradores'>
-                {props.colaboradores.map(card => <Card nome={card.nome} cargo={card.cargo} imagem={card.imagem}/>)}
+                {props.colaboradores.map(card => <Card key={card.nome} corDeFundo={props.corSecundaria} nome={card.nome} cargo={card.cargo} imagem={card.imagem}/>)}
             </div>
         </section>
         : ''
